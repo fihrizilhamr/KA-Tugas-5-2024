@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app
+spec:
+  selector:
+    matchLabels:
+      app: app
+  template:
+    metadata:
+      labels:
+        app: app
+    spec:
+      containers:
+      - name: app
+        image: myapp:latest
+        ports:
+        - containerPort: 80
+        env:
+        - name: MODE
+          value: "development"
+        - name: MYSQL_DATABASE
+          value: "mydb_tugas5"
+        - name: MYSQL_PASSWORD
+          value: "mydb6789tyui"
+        - name: MYSQL_ROOT_PASSWORD
+          value: "mydb6789tyui"
+        volumeMounts:
+        - name: app-src
+          mountPath: "/var/www/localhost/htdocs/"
+        - name: app-logs
+          mountPath: "/var/log/"
+      volumes:
+      - name: app-src
+        hostPath:
+          path: ./src
+      - name: app-logs
+        hostPath:
+          path: ./platform/log
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: app-service
+spec:
+  selector:
+    app: app
+  ports:
+  - protocol: TCP
+    port: 5555
+    targetPort: 80
+  type: NodePort

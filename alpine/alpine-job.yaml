@@ -1,0 +1,19 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: alpine-script-job
+spec:
+  template:
+    spec:
+      containers:
+      - name: alpine
+        image: alpine:3.18
+        command: ["sh", "-C", "/scripts/run_getjokes.sh"]
+        volumeMounts:
+        - name: script-volume
+          mountPath: "/scripts"
+      restartPolicy: OnFailure
+      volumes:
+      - name: script-volume
+        hostPath:
+          path: ./scripts
