@@ -1,1 +1,1 @@
-docker build -t myapp:1.0 ./app
+docker build -t myapp ./app/platform
