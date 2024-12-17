@@ -1,10 +1,14 @@
 #!/bin/sh
 apk update && apk add --no-cache curl jq mysql-client
 
+
+MYSQL_HOST=$(awk -F= '/^MYSQL_HOST=/ {print $2}' .env)
+MYSQL_USER=$(awk -F= '/^MYSQL_USER=/ {print $2}' ../../.env)
+
 MYSQL_HOST=mysql1
 MYSQL_USER=root
 MYSQL_PASSWORD=mydb6789tyui
-MYSQL_DATABASE=mydb_tugas3
+MYSQL_DATABASE=mydb_tugas5
 MYSQL_TABLE=jokes
 
 URL=https://api.chucknorris.io/jokes/random
