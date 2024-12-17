@@ -32,7 +32,7 @@ spec:
       volumes:
       - name: app-src
         hostPath:
-          path: ./src
+          path: $(pwd)/app/src
 ---
 apiVersion: v1
 kind: Service
