@@ -1,9 +1,11 @@
 #!/bin/sh
 apk update && apk add --no-cache curl jq mysql-client
 
-
-MYSQL_HOST=$(awk -F= '/^MYSQL_HOST=/ {print $2}' .env)
-MYSQL_USER=$(awk -F= '/^MYSQL_USER=/ {print $2}' ../../.env)
+# MYSQL_HOST=$(awk -F= '/^MYSQL_HOST=/ {print $2}' ../../.env)
+# MYSQL_USER=$(awk -F= '/^MYSQL_USER=/ {print $2}' ../../.env)
+# MYSQL_PASSWORD=$(awk -F= '/^MYSQL_PASSWORD=/ {print $2}' ../../.env)
+# MYSQL_DATABASE=$(awk -F= '/^MYSQL_DATABASE=/ {print $2}' ../../.env)
+# MYSQL_TABLE=$(awk -F= '/^MYSQL_TABLE=/ {print $2}' ../../.env)
 
 MYSQL_HOST=mysql1
 MYSQL_USER=root
