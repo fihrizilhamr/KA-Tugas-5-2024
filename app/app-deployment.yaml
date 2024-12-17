@@ -29,15 +29,10 @@ spec:
         volumeMounts:
         - name: app-src
           mountPath: "/var/www/localhost/htdocs/"
-        - name: app-logs
-          mountPath: "/var/log/"
       volumes:
       - name: app-src
         hostPath:
           path: ./app/src
-      - name: app-logs
-        hostPath:
-          path: ./app/platform/log
 ---
 apiVersion: v1
 kind: Service
