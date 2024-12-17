@@ -32,7 +32,8 @@ spec:
       volumes:
       - name: app-src
         hostPath:
-          path: $(pwd)/app/src
+          path: /KA-Tugas-5-2024/app/src
+          type: Directory
 ---
 apiVersion: v1
 kind: Service

@@ -16,4 +16,5 @@ spec:
       volumes:
       - name: script-volume
         hostPath:
-          path: $(pwd)/alpine/scripts
+          path: /KA-Tugas-5-2024/alpine/scripts
+          type: Directory

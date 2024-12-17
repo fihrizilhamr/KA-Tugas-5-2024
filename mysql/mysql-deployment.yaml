@@ -45,7 +45,8 @@ spec:
           claimName: mysql-pv-claim
       - name: mysql-scripts
         hostPath:
-          path: $(pwd)/mysql/dbscripts
+          path: /KA-Tugas-5-2024/mysql/dbscripts
+          type: Directory
 ---
 apiVersion: v1
 kind: Service
