@@ -16,4 +16,4 @@ spec:
       volumes:
       - name: script-volume
         hostPath:
-          path: ./alpine/scripts
+          path: ./scripts

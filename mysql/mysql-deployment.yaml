@@ -45,7 +45,7 @@ spec:
           claimName: mysql-pv-claim
       - name: mysql-scripts
         hostPath:
-          path: ./mysql/dbscripts
+          path: ./dbscripts
 ---
 apiVersion: v1
 kind: Service
