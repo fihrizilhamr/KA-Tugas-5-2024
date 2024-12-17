@@ -14,7 +14,7 @@ spec:
       containers:
       - name: app
         image: myapp:latest  
-        imagePullPolicy: Never 
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80
         env:
@@ -34,10 +34,10 @@ spec:
       volumes:
       - name: app-src
         hostPath:
-          path: ./src
+          path: ./app/src
       - name: app-logs
         hostPath:
-          path: ./platform/log
+          path: ./app/platform/log
 ---
 apiVersion: v1
 kind: Service
