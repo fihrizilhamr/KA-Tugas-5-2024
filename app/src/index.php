@@ -1,3 +1,4 @@
+<?php include "db_connect.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,34 +12,21 @@
         <h1>Chuck Norris Jokes</h1>
         <div class="jokes-list">
             <?php
-                $servername = "mysql1"; 
-                $username = "root";
-                $password = "mydb6789tyui";
-                $dbname = "mydb_tugas5"; 
-
-                $conn = new mysqli($servername, $username, $password, $dbname);
-                
-                if ($conn->connect_error) {
-                    die("<p class='error'>Connection failed: " . htmlspecialchars($conn->connect_error) . "</p>");
-                }
-
                 $sql = "SELECT id, joke_text, created_at FROM jokes ORDER BY created_at DESC"; 
                 $result = $conn->query($sql);
 
-                if ($result->num_rows > 0) {
-                    // Output each joke
+                if ($result && $result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
                         echo "<div class='joke-item'>";
-                        echo "<a href='get_jokes.php?joke_text=" . urlencode($row["joke_text"]) . "&created_at=" . urlencode($row["created_at"]) . "'>";
+                        echo "<a href='get_jokes.php?joke_id=" . urlencode($row["id"]) . "'>";
                         echo "<p class='joke-text'>" . htmlspecialchars($row["joke_text"]) . "</p>";
-                        echo "<p class='joke-date'>Saved on: " . $row["created_at"] . "</p>";
+                        echo "<p class='joke-date'>Saved on: " . htmlspecialchars($row["created_at"]) . "</p>";
                         echo "</a>";
                         echo "</div>";
                     }
                 } else {
                     echo "<p class='no-jokes'>No jokes found.</p>";
                 }
-
                 $conn->close();
             ?>
         </div>

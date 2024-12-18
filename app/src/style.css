@@ -91,3 +91,45 @@ h1 {
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
+.comment-item-stylized {
+    background-color: #fefefe;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    text-align: left;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.comment-rating {
+    font-weight: bold;
+    color: #ff6f61;
+}
+
+.comment-text {
+    font-size: 16px;
+    color: #555;
+    margin: 10px 0;
+}
+
+.comment-date {
+    font-size: 12px;
+    color: #999;
+    font-style: italic;
+}
+
+.write-comment-link {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 15px;
+    background-color: #007BFF;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.write-comment-link:hover {
+    background-color: #0056b3;
+}
