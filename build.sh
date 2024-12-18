@@ -13,3 +13,9 @@ PWD=$(pwd)
 docker cp $PWD mylab99-control-plane:/KA-Tugas-5-2024
 docker cp $PWD mylab99-worker:/KA-Tugas-5-2024
 docker cp $PWD mylab99-worker2:/KA-Tugas-5-2024
+
+kubectl delete -f mysql/mysql-deployment.yaml \
+            -f app/app-deployment.yaml \
+            -f phpmyadmin/phpmyadmin-deployment.yaml \
+            -f alpine/alpine-job.yaml 
+            # -f ingress.yaml
