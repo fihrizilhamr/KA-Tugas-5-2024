@@ -64,10 +64,12 @@ spec:
   selector:
     app: app
   ports:
-  - protocol: TCP
-    port: 5555
-    targetPort: 80  # For the first container
-  - protocol: TCP
-    port: 5
-    targetPort: 8080  # For the second container
+    - name: app
+      protocol: TCP
+      port: 5555
+      targetPort: 80
+    - name: app1
+      protocol: TCP
+      port: 5
+      targetPort: 8080
   type: NodePort
