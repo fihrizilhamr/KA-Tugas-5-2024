@@ -1,14 +1,10 @@
 <?php
-// Include the database connection file
 require_once("db_connect.php");
 
-// Get id from URL parameter
 $id = $_GET['id'];
 
-// Select data associated with this particular id
 $result = mysqli_query($mysqli, "SELECT * FROM users WHERE id = $id");
 
-// Fetch the next row of a result set as an associative array
 $resultData = mysqli_fetch_assoc($result);
 
 $name = $resultData['name'];
@@ -18,6 +14,7 @@ $email = $resultData['email'];
 <html>
 <head>	
 	<title>Edit Data</title>
+	<link rel="stylesheet" href="style.css">
 </head>
 
 <body>

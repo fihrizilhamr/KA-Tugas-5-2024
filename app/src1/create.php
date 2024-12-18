@@ -7,6 +7,7 @@
 	<h2>Create Data</h2>
 	<p>
 		<a href="index.php">Home</a>
+		<link rel="stylesheet" href="style.css">
 	</p>
 
 	<form action="create_action.php" method="post" name="add">

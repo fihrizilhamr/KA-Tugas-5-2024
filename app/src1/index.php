@@ -8,11 +8,12 @@ $result = mysqli_query($mysqli, "SELECT * FROM users ORDER BY id DESC");
 
 <html>
 <head>	
-	<title>Latihan 11</title>
+	<title>User Management</title>
+	<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-	<h2>Latihan 11</h2>
+	<h2>User Management</h2>
 	<p>
 		<a href="create.php">Add New Data</a>
 	</p>
@@ -24,7 +25,6 @@ $result = mysqli_query($mysqli, "SELECT * FROM users ORDER BY id DESC");
 			<td><strong>Action</strong></td>
 		</tr>
 		<?php
-		// Fetch the next row of a result set as an associative array
 		while ($res = mysqli_fetch_assoc($result)) {
 			echo "<tr>";
 			echo "<td>".$res['name']."</td>";

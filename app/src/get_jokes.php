@@ -17,11 +17,11 @@
     </script>
 </head>
 <body>
-    <div class="timestamp-container">
-        <span id="timestamp"></span>
-    </div>
     <div class="container">
         <h1>Selected Joke</h1>
+        <div class="timestamp-container">
+            <span id="timestamp"></span>
+        </div><br><br>
         <?php
             $images = ["image1.jpg", "image2.jpg", "image3.jpg", "image4.jpg"];
             $random_image = $images[array_rand($images)];
