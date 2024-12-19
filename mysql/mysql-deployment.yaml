@@ -35,8 +35,8 @@ spec:
         - name: MYSQL_ROOT_HOST
           value: "%"
         volumeMounts:
-        - mountPath: "/var/lib/mysql"
-          name: mysql-storage
+        # - mountPath: "/var/lib/mysql"
+        #   name: mysql-storage
         - mountPath: "/docker-entrypoint-initdb.d"
           name: mysql-scripts
       volumes:
