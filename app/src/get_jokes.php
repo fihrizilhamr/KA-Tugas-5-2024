@@ -69,7 +69,6 @@
                         $stmt_user->bind_param("i", $user_id);
                         $stmt_user->execute();
                         $result_user = $stmt_user->get_result();
-                        $username = 'Anonymous'; 
 
                         if ($result_user->num_rows > 0) {
                             $user = $result_user->fetch_assoc();
