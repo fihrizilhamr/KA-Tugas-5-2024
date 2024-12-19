@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: mysql-pv-claim
+  name: mysql-pvc
 spec:
   accessModes:
     - ReadWriteOnce
@@ -42,7 +42,7 @@ spec:
       volumes:
       - name: mysql-storage
         persistentVolumeClaim:
-          claimName: mysql-pv-claim
+          claimName: mysql-pvc
       - name: mysql-scripts
         hostPath:
           path: /KA-Tugas-5-2024/mysql/dbscripts

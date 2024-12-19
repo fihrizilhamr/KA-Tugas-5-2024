@@ -1,7 +1,7 @@
 # kubectl create configmap mysql-config --from-env-file=.env
 
-kubectl apply -f mysql/mysql-deployment.yaml \
+kubectl apply -f alpine/alpine-job.yaml \
             -f app/app-deployment.yaml \
             -f phpmyadmin/phpmyadmin-deployment.yaml \
-            -f alpine/alpine-job.yaml 
+            -f mysql/mysql-deployment.yaml
             # -f ingress.yaml
