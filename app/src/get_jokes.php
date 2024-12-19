@@ -75,6 +75,7 @@
                             $username = htmlspecialchars($user['username']);
                         } else {
                             $username = 'Anonymous'; 
+                            error_log("Missing user for ID: {$user_id}");
                         }
                         echo "<div class='comment-item-stylized'>";
                         echo "<p class='comment-rating'>Rating: " . htmlspecialchars($comment_row['rating']) . "/5</p>";
