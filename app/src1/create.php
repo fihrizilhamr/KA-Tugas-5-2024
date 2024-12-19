@@ -4,6 +4,7 @@
 </head>
 
 <body>
+<div class="container">
 	<h2>Create Data</h2>
 	<p>
 		<a href="index.php">Home</a>
@@ -40,6 +41,7 @@
 
 		</table>
 	</form>
+	</div>
 </body>
 </html>
 

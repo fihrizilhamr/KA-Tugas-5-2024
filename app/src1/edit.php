@@ -18,6 +18,7 @@ $email = $resultData['email'];
 </head>
 
 <body>
+<div class="container">
     <h2>Edit Data</h2>
     <p>
 	    <a href="index.php">Home</a>
@@ -52,5 +53,6 @@ $email = $resultData['email'];
 			</tr>
 		</table>
 	</form>
+	</div>
 </body>
 </html>

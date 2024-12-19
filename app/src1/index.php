@@ -13,6 +13,7 @@ $result = mysqli_query($mysqli, "SELECT * FROM users ORDER BY id DESC");
 </head>
 
 <body>
+	<div class="container">
 	<h2>User Management</h2>
 	<p>
 		<a href="create.php">Add New Data</a>
@@ -39,5 +40,6 @@ $result = mysqli_query($mysqli, "SELECT * FROM users ORDER BY id DESC");
 		}
 		?>
 	</table>
+	</div>
 </body>
 </html>

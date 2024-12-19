@@ -71,15 +71,15 @@
                         $result_user = $stmt_user->get_result();
                         $username = 'Anonymous'; 
 
-                        if ($result->num_rows > 0) {
-                            $user = $result->fetch_assoc();
-                            $username = htmlspecialchars($user['name']);
+                        if ($result_user->num_rows > 0) {
+                            $user = $result_user->fetch_assoc();
+                            $username = htmlspecialchars($user['username']);
                         } else {
                             $username = 'Anonymous'; 
                         }
                         echo "<div class='comment-item-stylized'>";
                         echo "<p class='comment-rating'>Rating: " . htmlspecialchars($comment_row['rating']) . "/5</p>";
-                        echo "<p class='comment-username'>Rating: " . $username . "</p>";
+                        echo "<p class='comment-username'>" . $username . "</p>";
                         echo "<p class='comment-text'>" . htmlspecialchars($comment_row['comment']) . "</p>";
                         echo "<p class='comment-date'>Posted on: " . htmlspecialchars($comment_row['created_at']) . "</p>";
                         echo "</div>";
