@@ -72,7 +72,7 @@
 
                         if ($result_user->num_rows > 0) {
                             $user = $result_user->fetch_assoc();
-                            $username = htmlspecialchars($user['username']);
+                            $username = htmlspecialchars($user);
                         } else {
                             $username = 'Anonymous'; 
                             error_log("Missing user for ID: {$user_id}");
