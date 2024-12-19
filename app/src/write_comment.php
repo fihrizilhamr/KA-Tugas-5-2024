@@ -6,10 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Write Comment</title>
     <link rel="stylesheet" href="style.css">
+    <script>
+        function goBack() {
+            if (document.referrer) {
+                window.history.back();
+            } else {
+                window.location.href = 'get_jokes.php?joke_id=<?php echo $_GET['joke_id']; ?>';
+            }
+        }
+    </script>
+
 </head>
 <body>
     <div class="container">
         <h1>Write Comment</h1>
+        <button onclick="goBack()" class="back-button">Back</button>
         <?php
             if (isset($_GET['joke_id']) && is_numeric($_GET['joke_id'])) {
                 $joke_id = intval($_GET['joke_id']);
@@ -22,8 +33,6 @@
 
             <label for="password">Password</label>
             <input type="password" name="password" required>
-
-            
 
             <label for="rating">Rating (1-5):</label>
             <input type="number" name="rating" min="1" max="5" required>

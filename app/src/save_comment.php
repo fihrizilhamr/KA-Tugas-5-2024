@@ -26,17 +26,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     header("Location: get_jokes.php?joke_id=$joke_id&success=true");
                     exit;
                 } else {
-                    echo "<p class='error'>Error saving comment: " . htmlspecialchars($conn->error) . "</p>";
+                    echo "<script>alert('Error saving comment: " . htmlspecialchars($conn->error) . "');</script>";
                 }
             } else {
-                echo "<p class='error'>Invalid password.</p>";
+                echo "<script>alert('Invalid password.');</script>";
             }
         } else {
-            echo "<p class='error'>User not found.</p>";
+            echo "<script>alert('User not found.');</script>";
         }
         $stmt->close();
     } else {
-        echo "<p class='error'>Invalid input. Please fill in all fields correctly.</p>";
+        echo "<script>alert('Invalid input. Please fill in all fields correctly.');</script>";
     }
 }
 

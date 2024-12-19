@@ -11,24 +11,24 @@ if (isset($_POST['update'])) {
 
     if (empty($name) || empty($age) || empty($email) || empty($username)) {
         if (empty($name)) {
-            echo "<font color='red'>Name field is empty.</font><br/>";
+            echo "<script>alert('Name field is empty.');</script>";
         }
         if (empty($age)) {
-            echo "<font color='red'>Age field is empty.</font><br/>";
+            echo "<script>alert('Age field is empty.');</script>";
         }
         if (empty($email)) {
-            echo "<font color='red'>Email field is empty.</font><br/>";
+            echo "<script>alert('Email field is empty.');</script>";
         }
         if (empty($username)) {
-            echo "<font color='red'>Username field is empty.</font><br/>";
+            echo "<script>alert('Username field is empty.');</script>";
         }
-        echo "<br/><a href='javascript:self.history.back();'>Go Back</a>";
+        echo "<script>history.back();</script>";
     } else {
         // Check if the username already exists
         $checkUsername = mysqli_query($mysqli, "SELECT * FROM users WHERE username = '$username' AND id != $id");
         if (mysqli_num_rows($checkUsername) > 0) {
-            echo "<font color='red'>Username already exists. Please choose a different one.</font><br/>";
-            echo "<br/><a href='javascript:self.history.back();'>Go Back</a>";
+            echo "<script>alert('Username already exists. Please choose a different one.');</script>";
+            echo "<script>history.back();</script>";
         } else {
             // Update user details
             if ($password) {
@@ -36,9 +36,9 @@ if (isset($_POST['update'])) {
             } else {
                 $result = mysqli_query($mysqli, "UPDATE users SET `name` = '$name', `age` = '$age', `email` = '$email', `username` = '$username' WHERE `id` = $id");
             }
-            echo "<p><font color='green'>Data updated successfully!</font></p>";
-            echo "<a href='index.php'>View Result</a>";
+            echo "<script>alert('Data updated successfully!');</script>";
+            echo "<script>window.location.href='index.php';</script>";
         }
     }
 }
-
+?>

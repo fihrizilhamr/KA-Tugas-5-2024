@@ -14,11 +14,19 @@
             timestampElement.innerText = formattedTime;
         }
         setInterval(updateTimestamp, 1000);
+        function goBack() {
+            if (document.referrer) {
+                window.history.back();
+            } else {
+                window.location.href = 'index.php'; 
+            }
+        }
     </script>
 </head>
 <body>
     <div class="container">
         <h1>Selected Joke</h1>
+        <button onclick="goBack()" class="back-button">Back</button>
         <div class="timestamp-container">
             <span id="timestamp"></span>
         </div><br><br>
@@ -48,7 +56,6 @@
                 $stmt->close();
 
                 echo "<h2>Comments</h2>";
-                echo "<br>";
                 echo "<a href='write_comment.php?joke_id=$joke_id' class='write-comment-link'>Write a Comment</a>";
                 $stmt_comments = $conn->prepare("SELECT rating, comment, created_at FROM comment WHERE joke_id = ? ORDER BY created_at DESC");
                 $stmt_comments->bind_param("i", $joke_id);
@@ -58,10 +65,11 @@
                 if ($result_comments->num_rows > 0) {
                     while ($comment_row = $result_comments->fetch_assoc()) {
                         $user_id = $comment_row['user_id'];
-                        $stmt_user = $conn->prepare("SELECT name FROM users WHERE id = ?");
-                        $stmt_user->bind_param("i", $user_id);  // Bind the user_id as an integer
+                        $stmt_user = $conn->prepare("SELECT username FROM users WHERE id = ?");
+                        $stmt_user->bind_param("i", $user_id);
                         $stmt_user->execute();
                         $result_user = $stmt_user->get_result();
+                        $username = 'Anonymous'; 
 
                         if ($result->num_rows > 0) {
                             $user = $result->fetch_assoc();
@@ -71,7 +79,7 @@
                         }
                         echo "<div class='comment-item-stylized'>";
                         echo "<p class='comment-rating'>Rating: " . htmlspecialchars($comment_row['rating']) . "/5</p>";
-                        echo "<p class='comment-username'>Rating: " . htmlspecialchars($comment_row['rating']) . "/5 by " . $username . "</p>";
+                        echo "<p class='comment-username'>Rating: " . $username . "</p>";
                         echo "<p class='comment-text'>" . htmlspecialchars($comment_row['comment']) . "</p>";
                         echo "<p class='comment-date'>Posted on: " . htmlspecialchars($comment_row['created_at']) . "</p>";
                         echo "</div>";

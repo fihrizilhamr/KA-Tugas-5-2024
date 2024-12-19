@@ -22,9 +22,9 @@ $result = mysqli_query($mysqli, "SELECT * FROM users ORDER BY id DESC");
 			<td><strong>Name</strong></td>
 			<td><strong>Age</strong></td>
 			<td><strong>Email</strong></td>
-			<td><strong>Action</strong></td>
 			<td><strong>Username</strong></td>
 			<td><strong>Password</strong></td>
+			<td><strong>Action</strong></td>
 		</tr>
 		<?php
 		while ($res = mysqli_fetch_assoc($result)) {

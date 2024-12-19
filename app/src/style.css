@@ -191,3 +191,18 @@ button:hover {
     margin-top: 10px;
     text-align: center;
 }
+
+
+.back-button {
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.back-button:hover {
+    background-color: #ddd;
+}
