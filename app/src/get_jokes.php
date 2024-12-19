@@ -79,7 +79,7 @@
                         }
                         echo "<div class='comment-item-stylized'>";
                         echo "<p class='comment-rating'>Rating: " . htmlspecialchars($comment_row['rating']) . "/5</p>";
-                        echo "<p class='comment-username'>" . $username . "</p>";
+                        echo "<p class='comment-username'>by: " . $username . "</p>";
                         echo "<p class='comment-text'>" . htmlspecialchars($comment_row['comment']) . "</p>";
                         echo "<p class='comment-date'>Posted on: " . htmlspecialchars($comment_row['created_at']) . "</p>";
                         echo "</div>";
