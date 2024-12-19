@@ -81,12 +81,12 @@ metadata:
   name: app-service
 spec:
   selector:
-    app: app # This selector will match the 'app' pod
+    app: app 
   ports:
     - name: app
       protocol: TCP
       port: 5555
-      targetPort: 80  # Target port for the app container
+      targetPort: 80  
   type: NodePort
 
 ---
@@ -96,10 +96,10 @@ metadata:
   name: app1-service
 spec:
   selector:
-    app: app1 # This selector will match the 'app1' pod
+    app: app1
   ports:
     - name: app1
       protocol: TCP
       port: 5
-      targetPort: 80  # Target port for the app1 container
+      targetPort: 80  
   type: NodePort
