@@ -10,6 +10,7 @@ RUN rm -rf /tmp/* /var/cache/apk/*
 ADD start.sh /tmp
 ADD supervisord.conf /tmp/supervisord.conf
 EXPOSE 80
+EXPOSE 8080
 
 ENV SESSIONAGE 60
 ENV REAUTHENTICATION 60
