@@ -48,6 +48,8 @@
                 $stmt->close();
 
                 echo "<h2>Comments</h2>";
+                echo "<br>";
+                echo "<a href='write_comment.php?joke_id=$joke_id' class='write-comment-link'>Write a Comment</a>";
                 $stmt_comments = $conn->prepare("SELECT rating, comment, created_at FROM comment WHERE joke_id = ? ORDER BY created_at DESC");
                 $stmt_comments->bind_param("i", $joke_id);
                 $stmt_comments->execute();
@@ -65,8 +67,7 @@
                     echo "<p class='no-jokes'>No comments yet. Be the first to comment!</p>";
                 }
                 $stmt_comments->close();
-                echo "<br>";
-                echo "<a href='write_comment.php?joke_id=$joke_id' class='write-comment-link'>Write a Comment</a>";
+                
             } else {
                 echo "<p class='no-jokes'>Invalid joke ID!</p>";
             }
