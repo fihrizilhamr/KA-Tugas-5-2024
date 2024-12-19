@@ -13,7 +13,6 @@ CREATE TABLE IF NOT EXISTS users (
   password VARCHAR(255) NOT NULL
 );
 
-
 CREATE TABLE IF NOT EXISTS comment (
     id INT AUTO_INCREMENT PRIMARY KEY,
     joke_id INT NOT NULL,
@@ -22,7 +21,7 @@ CREATE TABLE IF NOT EXISTS comment (
     comment TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (joke_id) REFERENCES jokes(id),
-    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE;
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
 

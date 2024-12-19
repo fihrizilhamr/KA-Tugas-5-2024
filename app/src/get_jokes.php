@@ -57,8 +57,21 @@
 
                 if ($result_comments->num_rows > 0) {
                     while ($comment_row = $result_comments->fetch_assoc()) {
+                        $user_id = $comment_row['user_id'];
+                        $stmt_user = $conn->prepare("SELECT name FROM users WHERE id = ?");
+                        $stmt_user->bind_param("i", $user_id);  // Bind the user_id as an integer
+                        $stmt_user->execute();
+                        $result_user = $stmt_user->get_result();
+
+                        if ($result->num_rows > 0) {
+                            $user = $result->fetch_assoc();
+                            $username = htmlspecialchars($user['name']);
+                        } else {
+                            $username = 'Anonymous'; 
+                        }
                         echo "<div class='comment-item-stylized'>";
                         echo "<p class='comment-rating'>Rating: " . htmlspecialchars($comment_row['rating']) . "/5</p>";
+                        echo "<p class='comment-username'>Rating: " . htmlspecialchars($comment_row['rating']) . "/5 by " . $username . "</p>";
                         echo "<p class='comment-text'>" . htmlspecialchars($comment_row['comment']) . "</p>";
                         echo "<p class='comment-date'>Posted on: " . htmlspecialchars($comment_row['created_at']) . "</p>";
                         echo "</div>";
