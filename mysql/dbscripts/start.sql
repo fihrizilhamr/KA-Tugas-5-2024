@@ -4,20 +4,25 @@ CREATE TABLE IF NOT EXISTS jokes (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+CREATE TABLE IF NOT EXISTS users (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(111) NOT NULL,
+  age INT NOT NULL,
+  email VARCHAR(111) NOT NULL,
+  username VARCHAR(111) NOT NULL UNIQUE,
+  password VARCHAR(255) NOT NULL
+);
+
+
 CREATE TABLE IF NOT EXISTS comment (
     id INT AUTO_INCREMENT PRIMARY KEY,
     joke_id INT NOT NULL,
-    user_id INT,
+    user_id INT NOT NULL,
     rating INT NOT NULL,
     comment TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (joke_id) REFERENCES jokes(id)
+    FOREIGN KEY (joke_id) REFERENCES jokes(id),
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE;
 );
 
 
-CREATE TABLE IF NOT EXISTS`users` (
-  `id` int(11) AUTO_INCREMENT PRIMARY KEY,
-  `name` varchar(111) NOT NULL,
-  `age` int(3) NOT NULL,
-  `email` varchar(111) NOT NULL
-);

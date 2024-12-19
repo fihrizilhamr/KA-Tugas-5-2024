@@ -37,6 +37,15 @@ $email = $resultData['email'];
 				<td>Email</td>
 				<td><input type="text" name="email" value="<?php echo $email; ?>"></td>
 			</tr>
+			<tr> 
+				<td>Username</td>
+				<td><input type="text" name="username" value="<?php echo $resultData['username']; ?>"></td>
+			</tr>
+			<tr> 
+				<td>New Password (optional)</td>
+				<td><input type="password" name="password"></td>
+			</tr>
+
 			<tr>
 				<td><input type="hidden" name="id" value=<?php echo $id; ?>></td>
 				<td><input type="submit" name="update" value="Update"></td>

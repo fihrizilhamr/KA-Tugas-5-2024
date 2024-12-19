@@ -16,10 +16,21 @@
         ?>
         <form action="save_comment.php" method="POST">
             <input type="hidden" name="joke_id" value="<?php echo $joke_id; ?>">
+            
+            <label for="usename">Username</label>
+            <input type="text" name="username" required>
+
+            <label for="password">Password</label>
+            <input type="password" name="password" required>
+
+            
+
             <label for="rating">Rating (1-5):</label>
             <input type="number" name="rating" min="1" max="5" required>
+
             <label for="comment">Comment:</label>
             <textarea name="comment" rows="4" required></textarea>
+
             <button type="submit">Submit</button>
         </form>
         <?php
