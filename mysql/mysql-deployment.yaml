@@ -40,9 +40,9 @@ spec:
         - mountPath: "/docker-entrypoint-initdb.d"
           name: mysql-scripts
       volumes:
-      - name: mysql-storage
-        persistentVolumeClaim:
-          claimName: mysql-pvc
+      # - name: mysql-storage
+      #   persistentVolumeClaim:
+      #     claimName: mysql-pvc
       - name: mysql-scripts
         hostPath:
           path: /KA-Tugas-5-2024/mysql/dbscripts
