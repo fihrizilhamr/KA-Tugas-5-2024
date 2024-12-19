@@ -64,7 +64,7 @@
 
                 if ($result_comments->num_rows > 0) {
                     while ($comment_row = $result_comments->fetch_assoc()) {
-                        $user_id = $comment_row['user_id'];
+                        $user_id = intval($comment_row['user_id']);
                         $stmt_user = $conn->prepare("SELECT username FROM users WHERE id = ?");
                         $stmt_user->bind_param("i", $user_id);
                         $stmt_user->execute();
