@@ -6,8 +6,8 @@ bash 4-cek-ingress.sh
 cd ../..
 
 cd visualizer
-bash visualizer/download.sh
-bash visualizer/run.sh
+bash download.sh
+bash run.sh
 cd ..
 
 docker build -t myapp ./app/platform
