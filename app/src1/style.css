@@ -95,7 +95,7 @@ form td {
     vertical-align: middle;
 }
 
-form input[type="text"], form input[type="submit"] {
+form input[type="text"], form input[type="password"], form input[type="submit"] {
     width: 100%;
     padding: 10px;
     border: 1px solid #ddd;

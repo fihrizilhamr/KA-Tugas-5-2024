@@ -28,7 +28,7 @@ spec:
           value: "mydb6789tyui"
         volumeMounts:
         - name: app-src
-          mountPath: "/var/www/localhost/htdocs/"
+          mountPath: "/var/www/localhost/htdocs/app"
       - name: app1
         image: myapp:latest  
         imagePullPolicy: IfNotPresent
@@ -45,7 +45,7 @@ spec:
           value: "mydb6789tyui"
         volumeMounts:
         - name: app-src1
-          mountPath: "/var/www/localhost/htdocs/"
+          mountPath: "/var/www/localhost/htdocs/app1"
       volumes:
       - name: app-src1
         hostPath:
