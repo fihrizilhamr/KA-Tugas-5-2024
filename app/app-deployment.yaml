@@ -33,7 +33,7 @@ spec:
         image: myapp:latest  
         imagePullPolicy: IfNotPresent
         ports:
-        - containerPort: 8080
+        - containerPort: 80
         env:
         - name: MODE
           value: "development"
@@ -70,6 +70,6 @@ spec:
       targetPort: 80
     - name: app1
       protocol: TCP
-      port: 8080
-      targetPort: 8080
+      port: 5
+      targetPort: 80
   type: NodePort
