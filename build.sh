@@ -5,6 +5,11 @@ bash 3-install-ingress.sh
 bash 4-cek-ingress.sh
 cd ../..
 
+cd visualizer
+bash visualizer/download.sh
+bash visualizer/run.sh
+cd ..
+
 docker build -t myapp ./app/platform
 kind load docker-image myapp:latest --name mylab99
 PWD=$(pwd)
