@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   name: app
 spec:
+  replicas: 1
   selector:
     matchLabels:
       app: app
@@ -29,11 +30,32 @@ spec:
         volumeMounts:
         - name: app-src
           mountPath: "/var/www/localhost/htdocs"
+      volumes:
+      - name: app-src
+        hostPath:
+          path: /KA-Tugas-5-2024/app/src
+          type: Directory
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app1
+  template:
+    metadata:
+      labels:
+        app: app1
+    spec:
+      containers:
       - name: app1
         image: myapp:latest  
         imagePullPolicy: IfNotPresent
         ports:
-        - containerPort: 8080
+        - containerPort: 80
         env:
         - name: MODE
           value: "development"
@@ -51,10 +73,7 @@ spec:
         hostPath:
           path: /KA-Tugas-5-2024/app/src1
           type: Directory
-      - name: app-src
-        hostPath:
-          path: /KA-Tugas-5-2024/app/src
-          type: Directory
+
 ---
 apiVersion: v1
 kind: Service
@@ -62,14 +81,25 @@ metadata:
   name: app-service
 spec:
   selector:
-    app: app
+    app: app # This selector will match the 'app' pod
   ports:
     - name: app
       protocol: TCP
-      port: 80
-      targetPort: 80
+      port: 5555
+      targetPort: 80  # Target port for the app container
+  type: NodePort
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: app1-service
+spec:
+  selector:
+    app: app1 # This selector will match the 'app1' pod
+  ports:
     - name: app1
       protocol: TCP
-      port: 8080
-      targetPort: 80
+      port: 5
+      targetPort: 80  # Target port for the app1 container
   type: NodePort
