@@ -57,7 +57,7 @@
 
                 echo "<h2>Comments</h2>";
                 echo "<a href='write_comment.php?joke_id=$joke_id' class='write-comment-link'>Write a Comment</a>";
-                $stmt_comments = $conn->prepare("SELECT rating, comment, created_at FROM comment WHERE joke_id = ? ORDER BY created_at DESC");
+                $stmt_comments = $conn->prepare("SELECT rating, comment, created_at, user_id FROM comment WHERE joke_id = ? ORDER BY created_at DESC");
                 $stmt_comments->bind_param("i", $joke_id);
                 $stmt_comments->execute();
                 $result_comments = $stmt_comments->get_result();
