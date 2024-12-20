@@ -1,7 +1,9 @@
-
+mkdir /platform/src
 cp -r ./app/src /platform/src
+
 docker build -t myapp ./app/platform
 
+mkdir /platform/src1
 cp -r ./app/src1 /platform/src1
 docker build -t myapp1 ./app/platform1
 
