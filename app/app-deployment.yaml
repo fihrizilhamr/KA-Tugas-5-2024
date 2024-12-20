@@ -31,7 +31,7 @@ spec:
         - name: app-src
           mountPath: "/var/www/localhost/htdocs"
       - name: app1
-        image: myapp:latest  
+        image: myapp1:latest  
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
