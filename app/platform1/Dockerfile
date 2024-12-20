@@ -10,6 +10,7 @@ RUN rm -rf /tmp/* /var/cache/apk/*
 ADD start.sh /tmp
 ADD supervisord.conf /tmp/supervisord.conf
 ADD httpd.conf /etc/apache2/httpd.conf
+ADD ssl.conf /etc/apache2/conf.d/ssl.conf
 
 EXPOSE 80
 EXPOSE 8080

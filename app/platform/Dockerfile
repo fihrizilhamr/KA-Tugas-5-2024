@@ -9,6 +9,7 @@ RUN apk add composer php7-gmp php7-sodium  php7-xml supervisor
 RUN rm -rf /tmp/* /var/cache/apk/*
 ADD start.sh /tmp
 ADD supervisord.conf /tmp/supervisord.conf
+ADD ssl.conf /etc/apache2/conf.d/ssl.conf
 
 EXPOSE 80
 
