@@ -7,8 +7,8 @@ VOLUME ["/var/www/localhost/htdocs"]
 RUN apk add composer php7-gmp php7-sodium  php7-xml supervisor
 
 RUN rm -rf /tmp/* /var/cache/apk/*
-# ADD start.sh /tmp
-# ADD supervisord.conf /tmp/supervisord.conf
+ADD start.sh /tmp
+ADD supervisord.conf /tmp/supervisord.conf
 ADD httpd.conf /etc/apache2/httpd.conf
 
 EXPOSE 8080
@@ -18,4 +18,4 @@ ENV REAUTHENTICATION 60
 ENV IPEXPIRE 120
 
 #ENTRYPOINT ["apachectl","-D","FOREGROUND"]
-# ENTRYPOINT ["sh","-C","/tmp/start.sh"]
+ENTRYPOINT ["sh","-C","/tmp/start.sh"]
