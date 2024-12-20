@@ -4,7 +4,7 @@ RUN apk update && apk add --no-cache apache2 curl supervisor socat php7-intl php
 
 VOLUME ["/var/www/localhost/htdocs"]
 
-RUN apk add composer php7-gmp php7-sodium  php7-xml supervisor php7-zip
+RUN apk add composer php7-gmp php7-sodium  php7-xml supervisor 
 
 RUN rm -rf /tmp/* /var/cache/apk/*
 ADD start.sh /tmp
