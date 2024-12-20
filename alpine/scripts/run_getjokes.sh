@@ -1,5 +1,6 @@
 #!/bin/sh
-apk update && apk add --no-cache curl jq mysql-client
+apk update --update-cache --retry=5
+apk add --no-cache curl jq mysql-client
 
 # MYSQL_HOST=$(awk -F= '/^MYSQL_HOST=/ {print $2}' ../../.env)
 # MYSQL_USER=$(awk -F= '/^MYSQL_USER=/ {print $2}' ../../.env)
