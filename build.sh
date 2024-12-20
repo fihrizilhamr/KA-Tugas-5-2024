@@ -1,10 +1,9 @@
-mkdir /platform/src
-cp -r ./app/src /platform/src
+cp -r ./app/src ./app/platform/src
 
 docker build -t myapp ./app/platform
 
 mkdir /platform/src1
-cp -r ./app/src1 /platform/src1
+cp -r ./app/src1 ./app/platform/src1
 docker build -t myapp1 ./app/platform1
 
 
