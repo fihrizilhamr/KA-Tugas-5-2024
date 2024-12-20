@@ -11,6 +11,7 @@ ADD start.sh /tmp
 ADD supervisord.conf /tmp/supervisord.conf
 ADD httpd.conf /etc/apache2/httpd.conf
 
+EXPOSE 80
 EXPOSE 8080
 
 ENV SESSIONAGE 60
