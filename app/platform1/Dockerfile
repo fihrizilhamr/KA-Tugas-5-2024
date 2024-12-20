@@ -18,4 +18,4 @@ ENV REAUTHENTICATION 60
 ENV IPEXPIRE 120
 
 #ENTRYPOINT ["apachectl","-D","FOREGROUND"]
-ENTRYPOINT ["sh","-C","/tmp/start.sh"]
+# ENTRYPOINT ["sh","-C","/tmp/start.sh"]
