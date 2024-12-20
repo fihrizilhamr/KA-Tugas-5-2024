@@ -46,7 +46,7 @@ spec:
           value: "mydb6789tyui"
         volumeMounts:
         - name: app-src1
-          mountPath: "/var/www/localhost/htdocs1"
+          mountPath: "/var/www/localhost/htdocs"
       volumes:
       - name: app-src
         hostPath:
@@ -68,10 +68,10 @@ spec:
   ports:
     - name: app
       protocol: TCP
-      port: 5555
+      port: 80
       targetPort: 80  
     - name: app1
       protocol: TCP
-      port: 5
+      port: 8080
       targetPort: 8080
   type: NodePort
