@@ -1,4 +1,8 @@
+
+cp ./app/src /platform/src
 docker build -t myapp ./app/platform
+
+cp ./app/src1 /platform/src1
 docker build -t myapp1 ./app/platform1
 
 
