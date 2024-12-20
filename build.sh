@@ -1,5 +1,9 @@
 docker build -t myapp ./app/platform
+docker build -t myapp1 ./app/platform1
+
+
 kind load docker-image myapp:latest --name mylab99
+kind load docker-image myapp1:latest --name mylab99
 PWD=$(pwd)
 
 docker exec mylab99-control-plane rm -rf /KA-Tugas-5-2024

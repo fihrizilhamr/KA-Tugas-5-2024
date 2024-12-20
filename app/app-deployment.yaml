@@ -47,9 +47,6 @@ spec:
         volumeMounts:
         - name: app-src1
           mountPath: "/var/www/localhost/htdocs"
-        - name: apache-config
-          mountPath: "/etc/apache2/httpd.conf"
-          subPath: httpd.conf
       volumes:
       - name: app-src
         hostPath:
@@ -59,9 +56,6 @@ spec:
         hostPath:
           path: /KA-Tugas-5-2024/app/src1
           type: Directory
-      - name: apache-config
-        configMap:
-          name: apache-config
 
 ---
 apiVersion: v1
